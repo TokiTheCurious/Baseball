@@ -1,14 +1,14 @@
 package com.example.baseball
 
-class BaseballSet(var Hits: Int = 0, var Balls:Int = 0){
+class BaseballSet(var hits: Int = 0, var balls:Int = 0, var misses: Int = 0,val expectedMax: Int){
     override fun toString(): String {
-        if(Hits == 0 && Balls == 0)
-            return "Strike"
-        else if(Hits == 4)
+        if(misses == expectedMax)
+            return "Out"
+        else if(hits == expectedMax)
             return "Homerun"
         else {
-            val h = if (Hits > 0) "${Hits}H" else ""
-            val b = if (Balls > 0) "${Balls}B" else ""
+            val h = if (hits > 0) "${hits}H" else ""
+            val b = if (balls > 0) "${balls}B" else ""
             return "$h$b"
         }
     }
